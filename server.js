@@ -119,7 +119,13 @@ app.post("/articles/:id", function(req, res) {
     });
 });
 
+const mongooseConnect = mongoose.connection;
+
+
 // Start the server
+
+mongooseConnect.once("open", function(){
 app.listen(PORT, function() {
-  console.log("App running on port " + PORT + "!");
+  console.log("App running on port " + "mongoose" + "!");
+})
 });
